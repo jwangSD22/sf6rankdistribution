@@ -21,7 +21,7 @@ league.append('Master')
 division.append(1)
 
 for index in range(36):
-    time.sleep(10)
+    # time.sleep(10)
     player_count = scrape(league[index],division[index],index+1)
     players.append(player_count)
     print(f'Finished {league[index]} {division[index]} with {player_count} players.')
