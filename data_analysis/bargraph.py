@@ -30,13 +30,10 @@ color_gradients = [
 
 plt.figure(figsize=(10,10))
 
-data = pd.read_csv('rank_distribution.csv')
+data = pd.read_csv('../rank_distribution.csv')
 
 league = data['League'].to_numpy()
 division = data['Division'].astype(str).to_numpy()
-
-
-
 league_combined = league+' '+division+' '
 
 
