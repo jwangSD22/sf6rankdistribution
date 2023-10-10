@@ -11,12 +11,13 @@ from selenium.webdriver.support import expected_conditions as EC
 def scrape(league,league_division,rank_page):
     
     url = f'https://www.streetfighter.com/6/buckler/ranking/league?character_filter=1&character_id=luke&platform=1&user_status=1&home_filter=2&home_category_id=5&home_id=1&league_rank={rank_page}&page=1' 
+    
     user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36'
 
     options = Options()
-    options.add_argument('--headless=new')
     options.add_argument(f'user-agent={user_agent}')
     options.add_argument('--window-size=1920,1080')
+    options.add_argument('--headless=new')
     options.add_argument('--disable-gpu')
     options.add_argument('--allow-running-insecure-content')
 
@@ -24,6 +25,8 @@ def scrape(league,league_division,rank_page):
         ChromeDriverManager().install()),options=options) 
 
     driver.get(url) 
+
+
 
     driver.add_cookie({
         "name":"buckler_praise_date","value":"1695945638704"
@@ -49,17 +52,13 @@ def scrape(league,league_division,rank_page):
 
 
     # Wait for the page to load completely (you can customize the timeout)
-    ranking_info = driver.find_element(By.CLASS_NAME, "ranking_ranking_now__last__TghLM")
+    
 
-
-    print(ranking_info.text)
-
-    split = ranking_info.text.split(' ')
+  
+    # printing the content of entire page 
 
     
 
-
     driver.quit()
-
-    return split[1]
   
+scrape('Rookie',1,rank_page=1)
