@@ -5,6 +5,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
+from datetime import datetime
+
 
 
 
@@ -16,10 +18,11 @@ import plotly.express as px
 def output_plots():
     data = pd.read_csv('rank_distribution.csv')
 
+    current_date = datetime.now().strftime("%m-%d-%Y")
 
     # %%
     pie_info = data.groupby('League').sum()
-    fig = px.pie(title='Distribution by League',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
+    fig = px.pie(title='Distribution by League - {current_date}',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
     fig.update_traces(textposition='outside', textinfo='percent+label')
 
 
@@ -71,7 +74,7 @@ def output_plots():
 
     plt.xticks(rotation=90)
     plt.bar(x,y,color=color_gradients)
-    plt.title('Player Count by Division in North America')
+    plt.title(f'Player Count by Division in North America - {current_date}')
     plt.xlabel('Division')
     plt.ylabel('Players')
 
