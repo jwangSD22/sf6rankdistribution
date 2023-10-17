@@ -1,8 +1,9 @@
 
 import pandas as pd
+from data_analysis import makeplot
 from datetime import datetime
-
 from scraper import scrape
+
 
 leagues = ['Rookie','Iron','Bronze','Silver','Gold','Platinum','Diamond','Master']
 
@@ -30,14 +31,21 @@ dict = {'League':league,'Division':division,'Number of Players':players}
 df = pd.DataFrame(dict)
 
 current_date = datetime.now().strftime("%Y-%m-%d")
+
 output_filename =f'{current_date}--rank_distribution.csv'
 
 df.to_csv(output_filename)
 
-# df.to_csv('rank_distribution.csv')
+df.to_csv('rank_distribution.csv')
 
+
+
+makeplot.output_plots()
+
+
+#upload this csv file to s3 with the date -- 
 
 
 ## run jupyter notebooks code here.. 
 
-## output file with date to output folder
+## output file with date to output folder in s3

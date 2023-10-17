@@ -1,18 +1,21 @@
-from selenium import webdriver 
-from selenium.webdriver.chrome.service import Service as ChromeService 
-from webdriver_manager.chrome import ChromeDriverManager 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
+from data_analysis import makeplot
+from datetime import datetime
+
+import boto3
+
+makeplot.output_plots()
+
+bucket_name = 'sf6rankdistribution'
+current_date = datetime.now().strftime("%Y-%m-%d")
 
 
- 
-url = "https://scrapeme.live/shop/" 
-options = Options()
-options.add_argument("--headless")
- 
-with webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=options) as driver: 
-	driver.get(url)
-	
-	test=driver.find_element(By.CLASS_NAME,'woocommerce-loop-product__title')
+s3 = boto3.client('s3')
 
-	print(test.text)
+s3.upload_file('current_bar.png', bucket_name, 'current/current_bar.png')
+s3.upload_file('current_pie.png', bucket_name, 'current/current_pie.png')
+s3.upload_file('rank_distribution.csv', bucket_name, 'current/current_csv.csv')
+
+s3.upload_file('current_bar.png', bucket_name, f'images/bar/{current_date}--bar.png')
+s3.upload_file('current_pie.png', bucket_name, f'images/pie/{current_date}--pie.png')
+
+s3.upload_file('rank_distribution.csv', bucket_name, f'csv/{current_date}--csv.csv')
