@@ -19,7 +19,7 @@ def output_plots():
 
     # %%
     pie_info = data.groupby('League').sum()
-    fig = px.pie(title='Distribution by League',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
+    fig = px.pie(title='Distribution by League in North America',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
     fig.update_traces(textposition='outside', textinfo='percent+label')
 
 
