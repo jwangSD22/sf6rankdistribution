@@ -1,7 +1,7 @@
-from data_analysis import makeplot
 from datetime import datetime
 # import boto3
 
+<<<<<<< HEAD
 def upload_files_s3():
     makeplot.output_plots()
 
@@ -21,3 +21,8 @@ def upload_files_s3():
     s3.upload_file('rank_distribution.csv', bucket_name, f'csv/{current_date}--csv.csv')
 
 makeplot.output_plots()
+=======
+current_date = datetime.now().strftime("%m-%d-%Y")
+
+print(current_date)
+>>>>>>> cc45aeea0d3a45e589846d71f1bc3f82483ec2c0
