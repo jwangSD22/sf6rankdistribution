@@ -22,11 +22,8 @@ def output_plots():
 
     # %%
     pie_info = data.groupby('League').sum()
-<<<<<<< HEAD
-    fig = px.pie(title='Distribution by League in North America',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
-=======
-    fig = px.pie(title='Distribution by League - {current_date}',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
->>>>>>> cc45aeea0d3a45e589846d71f1bc3f82483ec2c0
+
+    fig = px.pie(title=f'Distribution by League - {current_date}',labels = pie_info.index, values = pie_info['Number of Players'], names=pie_info.index, width=700,height=700,color=pie_info.index)
     fig.update_traces(textposition='outside', textinfo='percent+label')
 
 

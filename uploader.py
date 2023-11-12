@@ -19,3 +19,6 @@ def upload_files_s3():
     s3.upload_file('current_pie.png', bucket_name, f'images/pie/{current_date}--pie.png')
 
     s3.upload_file('rank_distribution.csv', bucket_name, f'csv/{current_date}--csv.csv')
+
+
+
