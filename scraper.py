@@ -57,8 +57,6 @@ def scrape(league,league_division,rank_page):
     split = ranking_info.text.split(' ')
 
     
-
-
     driver.quit()
 
     return split[1]

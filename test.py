@@ -1,26 +1,18 @@
-# from datetime import datetime
-# # import boto3
+import pandas as pd
+import os
 
-# def upload_files_s3():
-#     makeplot.output_plots()
-
-#     bucket_name = 'sf6rankdistribution'
-#     current_date = datetime.now().strftime("%Y-%m-%d")
+script_directory = os.path.dirname(os.path.abspath(__file__))
+output_relative_path = 'output/'
+output_path = os.path.join(script_directory, output_relative_path, 'output.csv')
 
 
-#     s3 = boto3.client('s3')
 
-#     s3.upload_file('current_bar.png', bucket_name, 'current/current_bar.png')
-#     s3.upload_file('current_pie.png', bucket_name, 'current/current_pie.png')
-#     s3.upload_file('rank_distribution.csv', bucket_name, 'current/current_csv.csv')
+data = {
+    'Name': ['John', 'Alice', 'Bob', 'Charlie'],
+    'Age': [28, 24, 22, 30],
+    'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago']
+}
 
-#     s3.upload_file('current_bar.png', bucket_name, f'images/bar/{current_date}--bar.png')
-#     s3.upload_file('current_pie.png', bucket_name, f'images/pie/{current_date}--pie.png')
+df = pd.DataFrame(data)
 
-#     s3.upload_file('rank_distribution.csv', bucket_name, f'csv/{current_date}--csv.csv')
-
-
-# makeplot.output_plots()
-# current_date = datetime.now().strftime("%m-%d-%Y")
-
-# print(current_date)
+df.to_csv(output_path, index=False)
