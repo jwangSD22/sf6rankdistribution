@@ -26,7 +26,7 @@ def scrape(league,league_division,rank_page):
     driver.get(url) 
 
     driver.add_cookie({
-        "name":"buckler_praise_date","value":"1699762251123"
+        "name":"buckler_praise_date","value":"1702947130757"
     })
     driver.add_cookie({
         "name":"buckler_r_id","value":"ffacf239-a620-4795-aa40-944eb2c851ab"
@@ -35,7 +35,7 @@ def scrape(league,league_division,rank_page):
         "name":"pll_language","value":"en"
     })
     driver.add_cookie({
-        "name":"buckler_id","value":"Ch2ojPnam1yk5NnxnFGcdyHFRI9VJNIV-TNkJEojmSmg7fQLRJfnD8_YkoAYQECE"
+        "name":"buckler_id","value":"BAlxk9GbtyYKCcrRRrCLIrfPHQElwlmJOXc7XvGizORgLAUQyjef5P-CCXQT7CXx"
     })
 
     # Reload the page to apply the cookies
