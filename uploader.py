@@ -22,3 +22,4 @@ def upload_files_s3():
 
 
 
+upload_files_s3()

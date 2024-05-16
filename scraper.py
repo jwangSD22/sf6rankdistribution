@@ -26,7 +26,7 @@ def scrape(league,league_division,rank_page):
     driver.get(url) 
 
     driver.add_cookie({
-        "name":"buckler_praise_date","value":"1699762251123"
+        "name":"buckler_praise_date","value":"1715867176506"
     })
     driver.add_cookie({
         "name":"buckler_r_id","value":"ffacf239-a620-4795-aa40-944eb2c851ab"
@@ -35,7 +35,7 @@ def scrape(league,league_division,rank_page):
         "name":"pll_language","value":"en"
     })
     driver.add_cookie({
-        "name":"buckler_id","value":"Ch2ojPnam1yk5NnxnFGcdyHFRI9VJNIV-TNkJEojmSmg7fQLRJfnD8_YkoAYQECE"
+        "name":"buckler_id","value":"_jGhNHvj3YsIBxozM3uQRThOamKTqhJ6wkr4yMJYnuOi4pf5RHmfbLcumthoDSad"
     })
 
     # Reload the page to apply the cookies
@@ -49,7 +49,7 @@ def scrape(league,league_division,rank_page):
 
 
     # Wait for the page to load completely (you can customize the timeout)
-    ranking_info = driver.find_element(By.CLASS_NAME, "ranking_ranking_now__last__TghLM")
+    ranking_info = driver.find_element(By.CLASS_NAME, "ranking_ranking_now__last__oqSXS")
 
 
     print(ranking_info.text)
